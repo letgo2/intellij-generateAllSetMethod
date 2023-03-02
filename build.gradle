@@ -40,7 +40,7 @@ intellij {
 //    IC-2016.1
 //    version 'IU-2018.3' //IntelliJ IDEA dependency
 
-    pluginName.set('GenerateAllSetter')
+    pluginName.set('CustomGenerateAllSetter')
     version.set('2018.3')
     type.set('IC')
     downloadSources.set(true)

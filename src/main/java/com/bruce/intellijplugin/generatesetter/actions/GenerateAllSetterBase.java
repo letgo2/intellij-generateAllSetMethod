@@ -52,6 +52,7 @@ import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -238,6 +239,9 @@ public abstract class GenerateAllSetterBase extends PsiElementBaseIntentionActio
             insertText += generateStringForNoParam(generateName, methods,
                     splitText, importList, hasGuava);
         } else {
+            // 加入对象判空逻辑
+            insertText = splitText + "if (" + info.getParamName() + " == null) {" + splitText + "\treturn null;" + splitText + "}" + splitText + insertText;
+            // 设置参数
             insertText += generateStringForParam(generateName, methods,
                     splitText, importList, hasGuava, info);
         }
